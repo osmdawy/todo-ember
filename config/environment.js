@@ -1,6 +1,7 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
+
   var ENV = {
     modulePrefix: 'todo-ember',
     environment: environment,
@@ -18,7 +19,14 @@ module.exports = function(environment) {
       // when it is created
     }
   };
-
+  ENV.contentSecurityPolicy = {
+   'default-src': "'self'",
+  
+   'connect-src': "http://localhost:3000", // Allow data (ajax/websocket) from api.mixpanel.com and custom-api.local
+   'img-src': "'self'",
+  
+   'media-src': "'self'"
+  }
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;

@@ -2,7 +2,10 @@
   "predef": [
     "document",
     "window",
+    "Ember", // Added
+    "$",
     "-Promise"
+
   ],
   "browser" : true,
   "boss" : true,
