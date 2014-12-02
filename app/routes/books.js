@@ -1,9 +1,14 @@
 import Ember from 'ember';
-export default Ember.Route.extend({
-  model: function() {
-  	console.log("bookssssssssssssss");
-    return this.store.find('book');
-  },
 
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
+
+export default Ember.Route.extend(RouteMixin, {
+  // optional. default is 10
+  perPage: 3,
+  model: function(params) {
+    // todo is your model name
+    // returns a PagedRemoteArray
+    console.log(params);
+    return this.findPaged('book',params);
+  }
 });
-

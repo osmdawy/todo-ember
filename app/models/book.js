@@ -6,16 +6,17 @@ var Book = DS.Model.extend({
   publish_date: DS.attr('date'),
   content: DS.attr('string'),
   author_id: DS.attr('string'),
+  image_path: DS.attr('string'),
   author: DS.belongsTo('author',{ async: true })
 });
-export default DS.RESTSerializer
-                       .extend(DS.EmbeddedRecordsMixin)
-                       .extend({
-                         attrs: {
-                           // thanks EmbeddedRecordsMixin!
-                           author: {serialize: 'id', deserialize: 'id'}
-                         }
-                       });
+// export default DS.RESTSerializer
+//                        .extend(DS.EmbeddedRecordsMixin)
+//                        .extend({
+//                          attrs: {
+//                            // thanks EmbeddedRecordsMixin!
+//                            author: {serialize: 'id', deserialize: 'id'}
+//                          }
+//                        });
 Book.reopenClass({
   // all: function() {
   //     return $.getJSON("http://localhost:3000/books.json").then(function(response) {

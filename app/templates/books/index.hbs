@@ -1,14 +1,16 @@
-<section id="todoapp">
+
+ <section id="index">
   <header id="header">
     <h1>Books</h1>
   </header>
- {{link-to 'New book' 'create'}}
-  <section id="main">
+ {{link-to 'New book' 'books.create'}}
+  <section id="main" >
+{{#if model.isSettled}}
     <ul id="todo-list">
-       {{#each}}
+       {{#each this}}
           <li>
 
-        {{#link-to 'book' this}}
+        {{#link-to 'books.book' this}}
             <label>
             {{title}}
             </label>
@@ -17,6 +19,18 @@
             <button class="destroy"></button>
           </li>
         {{/each}}
+       
+
+        {{page-numbers content=content}}
     </ul>
- 
+    {{else}}
+   <div class="bubblingG">
+    <span id="bubblingG_1">
+    </span>
+    <span id="bubblingG_2">
+    </span>
+    <span id="bubblingG_3">
+    </span>
+    </div>
+    {{/if}}
     </section>

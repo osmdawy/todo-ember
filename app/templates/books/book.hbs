@@ -1,0 +1,42 @@
+
+
+ <section id ="show">
+<label>
+  {{title}}
+ </label>
+ </br>
+<label>
+{{type}}
+</label>
+<label>
+</br>
+Author:
+{{author.name}}
+</label>
+<div id="logo">
+  <img  src={{image_path}} alt="Logo">
+</div>
+<h1> Update </h1>
+<form {{action "update" id on="submit"}} role="form">
+	{{input type="text" value=title placeholder="title" class="form-control"}}
+    
+
+    {{input type="text" value=type placeholder="type" class="form-control"}}
+  
+   
+
+    {{input type="date" value=publish_date placeholder="publish date" class="form-control"}}
+    <small >{{errors.date}}</small>
+    <div class="form-group">
+		<label for="book_author" class="col-sm-2 control-label" >Author</label>
+		<div class="col-sm-9">
+		 {{view Ember.Select content=authors optionLabelPath="content.name"        optionValuePath="content.id" valueBinding="model.id" class="form-control" value=author_id}}
+		</div>
+		</div>
+  
+    <button type="submit">Save</button>
+
+    
+
+</form>
+</section>
